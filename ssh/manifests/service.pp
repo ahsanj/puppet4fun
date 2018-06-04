@@ -7,6 +7,5 @@ class ssh::service(
     enable     => 'true',
     hasstatus  => true,
     hasrestart => true,
-
  }
 }

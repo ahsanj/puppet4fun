@@ -5,4 +5,5 @@ class ssh::install(
     ensure => present,
     name => $package_name,
  }
+
 }
