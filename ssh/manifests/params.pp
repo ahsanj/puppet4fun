@@ -13,5 +13,4 @@ class ssh::params {
     fail("${facts['operatingsystem']} is not supported")
   }
  }
-
 }
