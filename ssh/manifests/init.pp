@@ -1,8 +1,13 @@
 class ssh(
-  $package_name = $::ssh::params::package_name,
-  $servive_name = $::ssh::params::service_name,
+   String $package_name = $::ssh::params::package_name,
+   String $servive_name = $::ssh::params::service_name,
   )inherits ::ssh::params {
   
   class {'ssh::install': } ->
-  class {'ssh::service': }
+  #class {'ssh::install': 
+    #before => Class['::ssh::service']
+ #}
+  class {'ssh::service': 
+   # require => Class['::ssh::install']
+ }
 }
