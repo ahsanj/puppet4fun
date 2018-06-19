@@ -11,3 +11,5 @@ class ssh(
    # require => Class['::ssh::install']
  }
 }
+# Class['::ssh::install'] -> Class['::ssh::service'] this is resource reference
+
