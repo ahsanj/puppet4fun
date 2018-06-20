@@ -1,4 +1,6 @@
 class ssh::params {
+  $permit_root_login = true
+  $port = 22
   ### case statment example ###
   #case $facts['os']['family'] {
    case $::osfamily {
@@ -22,7 +24,7 @@ class ssh::params {
 # if $facts['os']['family'] == 'Debian' {
 #  $package_name = 'openssh-server'
 #  $service_name = 'ssh'
-#}
+#
 #elsif $facts['os']['family'] == 'Redhat' {
 #  $package_name = 'openssh-server'
 #  $service_name = 'sshd'
