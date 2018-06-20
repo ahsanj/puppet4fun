@@ -3,13 +3,19 @@ class ssh(
    String $servive_name = $::ssh::params::service_name,
   )inherits ::ssh::params {
   
-  class {'ssh::install': } ->
-  #class {'ssh::install': 
+  class {'::ssh::install': } 
+  class {'::ssh::config': }
+  #class {'::ssh::install': 
     #before => Class['::ssh::service']
  #}
   class {'ssh::service': 
    # require => Class['::ssh::install']
  }
 }
-# Class['::ssh::install'] -> Class['::ssh::service'] this is resource reference
+# order of execution
+  Class['::ssh::install'] 
+  -> Class['::ssh::config'] 
+  # ~> refresh
+  ~> Class['::ssh::service']
+  -> Class['ssh']
 
