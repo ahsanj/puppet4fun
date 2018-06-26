@@ -1,9 +1,12 @@
 class ssh(
-   $port = $::ssh::params::port,
-   $permit_root_login         = $::ssh::params::permit_root_login,
-   String $package_name       = $::ssh::params::package_name,
-   String $servive_name       = $::ssh::params::service_name,
-  )inherits ::ssh::params {
+  String $package_name,
+  String $service_name,
+  String $ensure,
+  String $service_ensure,
+  Boolean $service_enable,
+  Integer $port              = 22,
+  Boolean $permit_root_login = true,
+  ) {
   
   class {'::ssh::install': } 
   class {'::ssh::config': }  
